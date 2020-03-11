@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table search</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-danger">
+	<a href="" class="navbar-brand">search filter</a>
+</nav>
+<br>
+<br>
+	<script>
+	 function fun()
+		{
+			//accesing input
+			var myinput = document.getElementById("myinput").value;
+			
+			//table
+			var table = document.getElementById("table");
+			//tr
+			var tr = table.getElementsByTagName("tr");
+		
+			//loop
+			for(var i=0;i<tr.length;i++)
+				{
+					var td = tr[i].getElementsByTagName("td")[0];
+					if(td)
+						{
+							var textvalue = td.textContent;
+							
+							if(textvalue.indexOf(myinput) > -1)
+								{
+									tr[i].style.display="";
+									document.getElementById('span').textContent="  ";
+								}
+							else
+							{
+								tr[i].style.display="none";
+								document.getElementById('span').textContent="";
+						  
+							}
+						}
+				}
+		}
+	
+	</script>
+	
+	
+	<div class="container bg-info text-white">
+	<h1 class="text-center"> table search</h1>
+	<input type="text" id="myinput" onkeyup="fun()" placeholder="search here">
+	<span id="span"></span>
+	<br>
+	<br>
+	
+	<table class="table text-center" id="table">
+	
+		<Tr class="bg-dark">
+			<th>name</th>
+			<th>roll</th>
+			<th>document</th>
+		</Tr>
+		<tr>
+			<td>sachin</td>
+			<td>18</td>
+			<td>mba</td>
+		</tr>
+		<tr>
+			<td>nilesh</td>
+			<td>18</td>
+			<td>mba</td>
+		</tr>
+		<tr>
+			<td>vikas</td>
+			<td>22</td>
+			<td>mba</td>
+		</tr>
+		<tr>
+			<td>Atish</td>
+			<td>55</td>
+			<td>mca</td>
+		</tr>
+		<tr>
+			<td>ajay</td>
+			<td>44</td>
+			<td>mba</td>
+		</tr>
+		<tr>
+			<td>satyam</td>
+			<td>18</td>
+			<td>mba</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>
